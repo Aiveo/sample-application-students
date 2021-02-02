@@ -32,7 +32,7 @@ jobs:
         - cd sample-application-backend
       script:
         - echo "Docker build ..."
-        - docker build -t $DOCKERHUB_USER/sample-application-backend
+        - docker build -t $DOCKERHUB_USER/sample-application-backend .
         - echo "Docker login ..."
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWD
         - echo "Docker push ..."
@@ -43,7 +43,7 @@ jobs:
         - cd sample-application-frontend
       script:
         - echo "Docker build ..."
-        - docker build -t $DOCKERHUB_USER/sample-application-frontend
+        - docker build -t $DOCKERHUB_USER/sample-application-frontend .
         - echo "Docker login ..."
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWD
         - echo "Docker push ..."
