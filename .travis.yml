@@ -13,6 +13,8 @@ jobs:
       before_script:
         - cd sample-application-backend
       script:
+        - echo "Maven sonar"
+        - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=devops-2021
         - echo "Maven build"
         - mvn clean install
         - echo "Run test coverage and Quality Gate"
@@ -56,3 +58,8 @@ cache:
 
 services:
   - docker
+
+addons:
+  sonarcloud:
+    organization: "aiveo"
+    token: "$SONARCLOUD_TOKEN"
