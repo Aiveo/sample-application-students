@@ -12,6 +12,7 @@ jobs:
         - cd sample-application-backend
       script:
         - echo "Maven sonar"
+        - ls
         - mvn clean verify "org.jacoco:jacoco-maven-plugin:prepare-agent" "sonar:sonar" "-Dsonar.projectKey=sample-application-students"
 
 cache:
