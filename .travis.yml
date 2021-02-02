@@ -4,6 +4,7 @@ git:
 stages:
   - "Build and Test"
   - "Package"
+  - "Sonar"
 
 jobs:
   include:
@@ -13,8 +14,6 @@ jobs:
       before_script:
         - cd sample-application-backend
       script:
-        - echo "Maven sonar"
-        - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=devops-2021
         - echo "Maven build"
         - mvn clean install
         - echo "Run test coverage and Quality Gate"
@@ -50,6 +49,12 @@ jobs:
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWD
         - echo "Docker push ..."
         - docker push $DOCKERHUB_USER/sample-application-frontend
+
+    - stage: "Sonar"
+      language: java
+      script: 
+        - echo "Maven sonar"
+        - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=sample-application-students
 
 cache:
   directories:
