@@ -14,9 +14,9 @@ jobs:
         - cd sample-application-backend
       script:
         - echo "Maven build"
-        - mvn build
+        - mvn clean install
         - echo "Run test coverage and Quality Gate"
-        - mvn run test
+        - mvn test
     
     - stage: "Build and Test"
       language: node.js
@@ -25,7 +25,7 @@ jobs:
         - cd sample-application-frontend
       script:
         - echo "NPM install and build"
-        - npm clean verify
+        - npm run test
 
     - stage: "Package"
       before_script:
