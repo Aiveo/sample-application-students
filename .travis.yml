@@ -13,7 +13,9 @@ jobs:
       before_script:
         - cd sample-application-backend
       script:
-        - echo "Maven build" && echo "Run test coverage and Quality Gate" && echo "Maven Sonar"
+        - echo "Maven build"
+        - echo "Run test coverage and Quality Gate"
+        - echo "Maven sonar"
         - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=sample-application-students
     
     - stage: "Build and Test"
@@ -23,7 +25,10 @@ jobs:
         - cd sample-application-frontend
       script:
         - echo "NPM install and build"
+        - npm install
+        - npm run build
         - npm run test
+        - npm run lint
 
     - stage: "Package"
       before_script:
