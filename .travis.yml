@@ -56,7 +56,6 @@ jobs:
       before_script:
         - cd ansible
       script:
-        - echo "$RSAKEY"
         - echo "$RSAKEY" > id_rsa
         - chmod 400 id_rsa
         - echo "Docker build"
