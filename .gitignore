@@ -28,5 +28,3 @@ node_modules
 /.nb-gradle/
 
 secret
-
-ansible/id_rsa
