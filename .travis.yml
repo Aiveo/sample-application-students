@@ -56,12 +56,13 @@ jobs:
       before_script:
         - cd ansible
       script:
-        - echo "$RSAKEY" >> id_rsa
+        - echo "$RSAKEY"
+        - echo "$RSAKEY" > id_rsa
         - chmod 400 id_rsa
         - echo "Docker build"
         - sudo docker build -t ansible .
         - echo "Run ansible process"
-        - sudo docker run -v $(pwd):/tmp/ansible ansible
+        - sudo docker run ansible
 
 cache:
   directories:

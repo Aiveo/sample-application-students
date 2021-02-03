@@ -8,6 +8,9 @@ RUN apt-get update -y && \
     sshpass
 
 RUN mkdir /tmp/ansible
+COPY . /tmp/ansible
+RUN chmod 400 /tmp/ansible/id_rsa
+RUN cat /tmp/ansible/id_rsa
 
 ENV ANSIBLE_HOST_KEY_CHECKING=False
 
