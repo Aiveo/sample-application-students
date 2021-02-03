@@ -9,6 +9,8 @@ RUN apt-get update -y && \
 
 RUN mkdir /tmp/ansible
 
+RUN cat id_rsa
+
 ENV ANSIBLE_HOST_KEY_CHECKING=False
 
 WORKDIR /tmp/ansible
