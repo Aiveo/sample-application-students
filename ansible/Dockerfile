@@ -9,9 +9,7 @@ RUN apt-get update -y && \
 
 RUN mkdir /tmp/ansible
 
-RUN cat id_rsa
-
 ENV ANSIBLE_HOST_KEY_CHECKING=False
 
 WORKDIR /tmp/ansible
-CMD ansible-playbook -i inventories/setup.yml playbook.yml
+CMD cat id_rsa && ansible-playbook -i inventories/setup.yml playbook.yml
