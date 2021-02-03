@@ -60,7 +60,7 @@ jobs:
         - echo "Docker build"
         - sudo docker build -t ansible .
         - echo "Run ansible process"
-        - sudo docker run ansible
+        - sudo docker run -e "VAULT_PASS=$VAULT_PASS" ansible
 
 cache:
   directories:

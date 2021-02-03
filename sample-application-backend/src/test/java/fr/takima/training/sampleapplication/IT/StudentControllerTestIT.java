@@ -1,4 +1,4 @@
-package fr.takima.training.sampleapplication.IT;
+ package fr.takima.training.sampleapplication.IT;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
