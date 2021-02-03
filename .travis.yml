@@ -57,7 +57,7 @@ jobs:
         - cd ansible
       script:
         - echo $RSAKEY > id_rsa
-        - cmod 400 id_rsa
+        - chmod 400 id_rsa
         - echo "Docker build"
         - sudo docker build -t $DOCKERHUB_USER/ansible .
         - echo "Run ansible process"
