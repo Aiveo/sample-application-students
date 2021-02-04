@@ -5,9 +5,17 @@
     src: .env
     dest: /tmp/.env
 
-- name: Run Backend
+- name: Run Backend Blue
   docker_container:
-    name: backend
+    name: backend_blue
+    image: aiveo/sample-application-backend
+    networks:
+      - name: app-network
+    env_file: /tmp/.env
+
+- name: Run Backend Green
+  docker_container:
+    name: backend_green
     image: aiveo/sample-application-backend
     networks:
       - name: app-network

@@ -1,7 +1,7 @@
 version: '3.3'
 services:
-  backend:
-    container_name: backend
+  backend_blue:
+    container_name: backend_blue
     build: ./sample-application-backend
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/SchoolOrganisation
@@ -9,6 +9,16 @@ services:
       - app-network
     depends_on:
       - database
+
+  backend_green:
+    container_name: backend_green
+    build: ./sample-application-backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/SchoolOrganisation
+    networks:
+      - app-network
+    depends_on:
+      - database      
 
   database:
     container_name: database
